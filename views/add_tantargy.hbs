@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <link href="/tantargy.css" rel="stylesheet" 
+      type="text/css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tantargyak(admin)</title>
+</head>
+<body>
+    <header>
+       {{#if user}}
+            <p><p>you are logged in as: {{user}}</p></p>
+        {{else}}
+            <p>{{user}}</p>
+        {{/if}}
+    </header>
+    <h1>Admin user</h1>
+    <form action="/submit_tantargyak" method="POST">
+        <label>tantargy neve: <input type="text" name="tantargynev"></label>
+        <label>tantargy kod: <input type="number" name="tantargykod" style="width: 50px;"></label>
+        <label>evfolyam ev: <input type="number" name="evfolyam" style="width: 70px;"></label>
+
+        <label>kurzusok szama: <input type="number" name="kurzusok" style="width: 30px;"></label>
+        <label>szeminarok szama: <input type="number" name="szeminarok" style="width: 30px;"></label>
+        <label>laborok szama: <input type="number" name="laborok" style="width: 30px;"></label>
+        <button type="submit">Submit</button>
+    </form>
+    {{> logout}}
+</body>
+</html>

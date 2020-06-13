@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/delete_class.js"></script>
+    <link href="/styleReszletek.css" rel="stylesheet" 
+      type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+       {{#if user}}
+            <p>you are logged in as: {{user}}</p>
+        {{else}}
+            <p>{{user}}</p>
+        {{/if}}
+        <div id="result"></div>
+    </header>
+
+    <h1>Reszletek</h1>
+        {{#each classes}}
+            <p id="{{tipus}}">material code: {{kod}} ,class type: {{tipus}} , day: {{nap}} , begin hour: {{ora}} , room: {{terem}} 
+                {{#if ../isCreator}}
+                    <button onclick="deleteClass( {{tipus}} )">Delete</button>
+                {{/if}}
+            </p>
+        {{else}}
+            <p>No classes to show</p>
+        {{/each}}
+            <form method="POST" action="/add_class?kod={{kod}}">
+                <label>class type: <input type="text" name="classtype"></label>
+                <label>day: <input type="text" name="day"></label>
+                <label>begin hour: <input type="text" name="hour"></label>
+                <label>room: <input type="text" name="room"></label>
+                <button type="submit">Add</button>
+            </form>
+            <form method="POST" action="/add_sylabus?kod={{kod}}" enctype="multipart/form-data">
+                <label>sylabus: <input type="file" name="filename"></label>
+                <button type="submit">Add</button>
+            </form>
+            <form method="GET" action="/materials/download_sylabus">
+                <input type="hidden" name="kod" value="{{kod}}">
+                <button type="submit">Download Syllabus</button>
+            </form>
+            {{> logout}}
+</body>
+</html>

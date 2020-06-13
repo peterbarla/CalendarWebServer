@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <script src="material_properties.js"></script>
+    <link href="/style.css" rel="stylesheet" 
+      type="text/css">
+</head>
+<body>
+    <header>
+       {{#if user}}
+            <p><p>you are logged in as: {{user}}</p></p>
+        {{else}}
+            <p>{{user}}</p>
+        {{/if}}
+    </header>
+    <h1>Materials</h1>
+    {{#each materials}}
+        <p onclick="listProperties({{jegy}})" >material name: {{nev}} ,material code: {{jegy}} </p>
+            <form method="POST" action="/materials/delete">
+                <input type="hidden" name="nev" value="{{jegy}}">
+                <input type="submit" value="Delete">
+            </form>
+        </p><a href="/materials/details?kod={{jegy}}">reszletek</a><br>
+        <div id="{{jegy}}"></div>
+    {{else}}
+        <p>No materials to show</p>
+    {{/each}}
+    <form method="POST" action="/materials/add_tantargy">
+        <input type="submit" value="ADD">
+    </form>
+    {{> logout}}
+</body>
+</html>
