@@ -159,8 +159,8 @@ exports.getSylabus = (req, callback) => {
     if (err) {
       throw err;
     } else {
-      console.log(result[0].sylabus);
-      callback(err, result[0].sylabus);
+      console.log(result.sylabus);
+      callback(err, result.sylabus);
     }
   });
 };
