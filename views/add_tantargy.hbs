@@ -17,13 +17,13 @@
     </header>
     <h1>Admin user</h1>
     <form action="/submit_tantargyak" method="POST">
-        <label>tantargy neve: <input type="text" name="tantargynev"></label>
-        <label>tantargy kod: <input type="number" name="tantargykod" style="width: 50px;"></label>
-        <label>evfolyam ev: <input type="number" name="evfolyam" style="width: 70px;"></label>
+        <label>material name: <input type="text" name="tantargynev"></label>
+        <label>material unique code: <input type="number" name="tantargykod" style="width: 50px;"></label>
+        <label>year: <input type="number" name="evfolyam" style="width: 70px;"></label>
 
-        <label>kurzusok szama: <input type="number" name="kurzusok" style="width: 30px;"></label>
-        <label>szeminarok szama: <input type="number" name="szeminarok" style="width: 30px;"></label>
-        <label>laborok szama: <input type="number" name="laborok" style="width: 30px;"></label>
+        <label>course number: <input type="number" name="kurzusok" style="width: 30px;"></label>
+        <label>seminar number: <input type="number" name="szeminarok" style="width: 30px;"></label>
+        <label>lab number: <input type="number" name="laborok" style="width: 30px;"></label>
         <button type="submit">Submit</button>
     </form>
     {{> logout}}
